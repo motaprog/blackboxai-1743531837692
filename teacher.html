@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - الأستاذ | موقع الأمل التعليمي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com?v=3.4.1"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body class="font-['Cairo'] bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo and Site Name -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <img src="https://source.unsplash.com/featured/50x50?education" alt="شعار الأمل" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold text-blue-600">موقع الأمل التعليمي</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                    <a href="#lessons" class="nav-link">
+                        <i class="fas fa-book ml-1"></i>
+                        إدارة الدروس
+                    </a>
+                    <a href="#assignments" class="nav-link">
+                        <i class="fas fa-tasks ml-1"></i>
+                        الواجبات والاختبارات
+                    </a>
+                    <a href="#schedule" class="nav-link">
+                        <i class="fas fa-calendar ml-1"></i>
+                        الجدول الدراسي
+                    </a>
+                    <a href="#messages" class="nav-link">
+                        <i class="fas fa-comments ml-1"></i>
+                        التواصل مع الطلاب
+                    </a>
+                    <div class="relative">
+                        <button id="notifications-btn" class="nav-link">
+                            <i class="fas fa-bell ml-1"></i>
+                            الإشعارات
+                            <span class="notification-badge">2</span>
+                        </button>
+                    </div>
+                    <!-- User Menu -->
+                    <div class="relative">
+                        <button class="flex items-center space-x-2 space-x-reverse">
+                            <img src="https://source.unsplash.com/featured/40x40?teacher" alt="صورة الأستاذ" class="w-8 h-8 rounded-full">
+                            <span class="text-gray-700">أ. محمد علي</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#lessons" class="block py-2 nav-link">
+                    <i class="fas fa-book ml-1"></i>
+                    إدارة الدروس
+                </a>
+                <a href="#assignments" class="block py-2 nav-link">
+                    <i class="fas fa-tasks ml-1"></i>
+                    الواجبات والاختبارات
+                </a>
+                <a href="#schedule" class="block py-2 nav-link">
+                    <i class="fas fa-calendar ml-1"></i>
+                    الجدول الدراسي
+                </a>
+                <a href="#messages" class="block py-2 nav-link">
+                    <i class="fas fa-comments ml-1"></i>
+                    التواصل مع الطلاب
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pt-24 pb-12">
+        <!-- Welcome Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h1 class="text-2xl font-bold text-gray-800 mb-4">مرحباً بك، أ. محمد!</h1>
+            <p class="text-gray-600">لديك 5 دروس و 3 واجبات لتصحيحها هذا الأسبوع.</p>
+        </div>
+
+        <!-- Notifications Container -->
+        <div id="notification-container" class="mb-8"></div>
+
+        <!-- Lessons Management Section -->
+        <section id="lessons" class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-book ml-2"></i>
+                    إدارة الدروس
+                </h2>
+                <button onclick="toggleModal('add-lesson-modal')" class="btn btn-primary">
+                    <i class="fas fa-plus ml-2"></i>
+                    إضافة درس جديد
+                </button>
+            </div>
+            
+            <!-- Lessons Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sample Lesson Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">الجبر الخطي</h3>
+                            <div class="flex space-x-2 space-x-reverse">
+                                <button class="text-blue-600 hover:text-blue-800">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">شرح المعادلات الخطية وحلولها مع أمثلة تطبيقية</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">تاريخ النشر: 2024/01/15</span>
+                            <span class="badge badge-success">منشور</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assignments Section -->
+        <section id="assignments" class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-tasks ml-2"></i>
+                    الواجبات والاختبارات
+                </h2>
+                <button onclick="toggleModal('add-assignment-modal')" class="btn btn-primary">
+                    <i class="fas fa-plus ml-2"></i>
+                    إضافة واجب جديد
+                </button>
+            </div>
+
+            <!-- Assignments Table -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">عنوان الواجب</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الصف</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">تاريخ التسليم</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الحالة</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">واجب الجبر الخطي</td>
+                            <td class="px-6 py-4 whitespace-nowrap">الصف العاشر</td>
+                            <td class="px-6 py-4 whitespace-nowrap">2024/02/01</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="badge badge-warning">قيد التسليم</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <button class="text-blue-600 hover:text-blue-800 ml-2">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-calendar ml-2"></i>
+                الجدول الدراسي
+            </h2>
+            <div class="bg-white rounded-lg shadow-md overflow-x-auto">
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الوقت</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الأحد</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الاثنين</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الثلاثاء</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الأربعاء</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">الخميس</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4">8:00 - 9:00</td>
+                            <td class="px-6 py-4">الصف العاشر - رياضيات</td>
+                            <td class="px-6 py-4">-</td>
+                            <td class="px-6 py-4">الصف التاسع - رياضيات</td>
+                            <td class="px-6 py-4">-</td>
+                            <td class="px-6 py-4">الصف العاشر - رياضيات</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages" class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-comments ml-2"></i>
+                التواصل مع الطلاب
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Messages List -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <div class="p-4 border-b">
+                        <h3 class="font-bold text-gray-800">الرسائل الواردة</h3>
+                    </div>
+                    <div class="divide-y max-h-96 overflow-y-auto">
+                        <div class="p-4 hover:bg-gray-50">
+                            <div class="flex items-start space-x-4 space-x-reverse">
+                                <img src="https://source.unsplash.com/featured/40x40?student" alt="صورة الطالب" class="w-10 h-10 rounded-full">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h4 class="font-semibold">أحمد محمد</h4>
+                                        <span class="text-sm text-gray-500">منذ 30 دقيقة</span>
+                                    </div>
+                                    <p class="text-gray-600">استفسار حول الواجب الأخير</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Compose -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <div class="p-4 border-b">
+                        <h3 class="font-bold text-gray-800">إرسال رسالة جديدة</h3>
+                    </div>
+                    <div class="p-4">
+                        <form>
+                            <div class="mb-4">
+                                <label class="form-label">إلى</label>
+                                <select class="form-input">
+                                    <option>اختر الطالب</option>
+                                    <option>أحمد محمد</option>
+                                    <option>سارة أحمد</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">الرسالة</label>
+                                <textarea class="form-input" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">
+                                <i class="fas fa-paper-plane ml-2"></i>
+                                إرسال
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Lesson Modal -->
+    <div id="add-lesson-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-xl font-bold">إضافة درس جديد</h3>
+            </div>
+            <div class="modal-body">
+                <form id="add-lesson-form">
+                    <div class="mb-4">
+                        <label class="form-label">عنوان الدرس</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">الوصف</label>
+                        <textarea class="form-input" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">الصف</label>
+                        <select class="form-input" required>
+                            <option value="">اختر الصف</option>
+                            <option>الصف التاسع</option>
+                            <option>الصف العاشر</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">المرفقات</label>
+                        <input type="file" class="form-input">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="toggleModal('add-lesson-modal')">إلغاء</button>
+                <button class="btn btn-primary" onclick="handleFormSubmit(event, 'add-lesson-form')">حفظ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2024 موقع الأمل التعليمي. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
