@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - موقع الأمل التعليمي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com?v=3.4.1"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body class="font-['Cairo'] bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-4 space-x-reverse">
+                    <img src="https://source.unsplash.com/featured/50x50?education" alt="شعار الأمل" class="w-12 h-12 rounded-full">
+                    <span class="text-2xl font-bold text-blue-600">موقع الأمل التعليمي</span>
+                </a>
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">
+                    <i class="fas fa-home ml-2"></i>
+                    العودة للرئيسية
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Form Section -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-md mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8 animate-fade-in">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">تسجيل الدخول</h2>
+                
+                <!-- Error Messages Container -->
+                <div id="error-messages" class="hidden mb-6"></div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="space-y-6">
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="form-label">اسم المستخدم</label>
+                        <div class="relative">
+                            <span class="absolute right-3 top-3 text-gray-400">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <input type="text" id="username" name="username" 
+                                class="form-input pr-10"
+                                placeholder="أدخل اسم المستخدم">
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="form-label">كلمة المرور</label>
+                        <div class="relative">
+                            <span class="absolute right-3 top-3 text-gray-400">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" id="password" name="password" 
+                                class="form-input pr-10"
+                                placeholder="أدخل كلمة المرور">
+                        </div>
+                    </div>
+
+                    <!-- User Role Selection -->
+                    <div class="space-y-4">
+                        <label class="form-label">نوع المستخدم</label>
+                        <div class="grid grid-cols-3 gap-4">
+                            <label class="relative">
+                                <input type="radio" name="role" value="student" class="hidden peer">
+                                <div class="p-4 text-center border rounded-lg cursor-pointer transition-all duration-200
+                                    peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50">
+                                    <i class="fas fa-user-graduate text-2xl mb-2 text-blue-600"></i>
+                                    <div>تلميذ</div>
+                                </div>
+                            </label>
+                            <label class="relative">
+                                <input type="radio" name="role" value="teacher" class="hidden peer">
+                                <div class="p-4 text-center border rounded-lg cursor-pointer transition-all duration-200
+                                    peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50">
+                                    <i class="fas fa-chalkboard-teacher text-2xl mb-2 text-blue-600"></i>
+                                    <div>أستاذ</div>
+                                </div>
+                            </label>
+                            <label class="relative">
+                                <input type="radio" name="role" value="admin" class="hidden peer">
+                                <div class="p-4 text-center border rounded-lg cursor-pointer transition-all duration-200
+                                    peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50">
+                                    <i class="fas fa-user-shield text-2xl mb-2 text-blue-600"></i>
+                                    <div>إداري</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" name="remember" 
+                            class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="remember" class="mr-2 text-sm text-gray-600">تذكرني</label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                        class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold
+                        hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt ml-2"></i>
+                        تسجيل الدخول
+                    </button>
+                </form>
+
+                <!-- Additional Links -->
+                <div class="mt-6 text-center text-sm">
+                    <a href="#" class="text-blue-600 hover:text-blue-800">نسيت كلمة المرور؟</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-16">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center text-gray-600 text-sm">
+                &copy; 2024 موقع الأمل التعليمي. جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
